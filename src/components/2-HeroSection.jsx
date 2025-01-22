@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import OrderButton from './OrderButton';
 import img1 from "../../public/images/دائرة.png";
 import img2 from "../../public/images/رجل.png";
-import vd from "../../public/images/vd.mp4"
+// import vd from "../../public/images/vd.mp4"
 import vd1 from "../../public/images/vd1.mp4"
 const HeroSection = () => {
   const listAnimation = {
