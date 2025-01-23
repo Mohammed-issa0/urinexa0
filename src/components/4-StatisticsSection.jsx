@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaChartLine, FaExclamationTriangle, FaUserMd } from 'react-icons/fa';
 import tired from '../../public/images/tired.png'
-const StatisticsSection = () => {
+import Tork from './Tork';
+const StatisticsSection = ({ isModalOpen, setIsModalOpen }) => {
   const stats = [
     {
       icon: <FaChartLine className="text-4xl  mb-4" />,
@@ -56,6 +57,7 @@ const StatisticsSection = () => {
             </motion.div>
           ))}
         </div>
+        <Tork/>
         <img src={tired} className='mb-[-96px]'/>
       </div>
     </section>

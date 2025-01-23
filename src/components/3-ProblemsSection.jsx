@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import { Frown,ThumbsDown,CircleX,ShieldX,PowerOff } from "lucide-react";
-const ProblemsSection = () => {
+const ProblemsSection = ({ isModalOpen, setIsModalOpen }) => {
   const problems = [
     {
       icon: <Frown  className=" text-2xl" />,
@@ -65,7 +65,7 @@ const ProblemsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
@@ -81,7 +81,7 @@ const ProblemsSection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-6"
         >
           {problems.map((problem, index) => (
@@ -110,7 +110,7 @@ const ProblemsSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           transition={{ delay: 0.6 }}
           className="mt-12 text-center"
         >

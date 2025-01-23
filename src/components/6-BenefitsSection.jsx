@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaCheckCircle, FaLeaf, FaFlask, FaBolt, FaHeartbeat, FaUserMd } from 'react-icons/fa';
 
-const BenefitsSection = () => {
+const BenefitsSection = ({ isModalOpen, setIsModalOpen }) => {
   const benefits = [
     {
       icon: <FaLeaf className="text-3xl text-primary mb-4" />,
@@ -58,7 +58,7 @@ const BenefitsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4 text-primary">مميزات Urinexa</h2>
@@ -69,7 +69,7 @@ const BenefitsSection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8"
         >
           {benefits.map((benefit, index) => (
@@ -90,7 +90,7 @@ const BenefitsSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           transition={{ delay: 0.5 }}
           className="mt-16 text-center"
         >

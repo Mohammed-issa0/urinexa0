@@ -3,8 +3,8 @@ import OrderButton from './OrderButton';
 import img1 from "../../public/images/دائرة.png";
 import img2 from "../../public/images/رجل.png";
 // import vd from "../../public/images/vd.mp4"
-import vd from "../../public/images/vd1.mp4"
-const HeroSection = () => {
+import vd from "../../public/images/vd2.mp4"
+const HeroSection = ({ isModalOpen, setIsModalOpen }) => {
   const listAnimation = {
     hidden: { opacity: 0, x: -200 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
@@ -119,7 +119,8 @@ const HeroSection = () => {
           /> */}
         </motion.div>
       </motion.div>
-      <OrderButton className='mt-5'/>
+      <OrderButton className='mt-5' isModalOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}/>
     </div>
   </section>
   

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaExclamationCircle, FaHeartbeat, FaBrain, FaUserMd } from 'react-icons/fa';
 
-const HealthRisksSection = () => {
+const HealthRisksSection = ({ isModalOpen, setIsModalOpen }) => {
   const risks = [
     {
       icon: <FaExclamationCircle className="text-4xl text-red-500 mb-4" />,
@@ -55,7 +55,7 @@ const HealthRisksSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           className="text-4xl font-bold mb-16 text-center"
         >
           المخاطر الصحية إذا لم تُعالج مشاكل القدرة الجنسية والبروستاتا
@@ -65,7 +65,7 @@ const HealthRisksSection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-8"
         >
           {risks.map((risk, index) => (
