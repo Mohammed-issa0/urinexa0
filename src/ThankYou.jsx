@@ -1,21 +1,21 @@
 // ThankYou.jsx
 import React, { useEffect } from "react";
 import { CircleCheckBig } from "lucide-react";
-// import ReactPixel from "react-facebook-pixel";
+import ReactPixel from "react-facebook-pixel";
 
 export default function ThankYou() {
-//   useEffect(() => {
-//     // تتبع حدث "Purchase" عند تحميل الصفحة
-//     ReactPixel.track("Purchase", {
-//       value: 100.0, // قيمة الشراء
-//       currency: "TND", // العملة (تونسية دينار)
-//       content_name: "Urinexa Product", // اسم المنتج أو الخدمة
-//       content_category: "Health Supplement", // فئة المنتج
-//       content_ids: ["product_123"], // معرفات المنتجات إذا كانت متاحة
-//       content_type: "product",
-//       num_items: 1, // عدد العناصر
-//     });
-//   }, []);
+  useEffect(() => {
+    // تتبع حدث "Purchase" عند تحميل الصفحة
+    ReactPixel.track("Purchase", {
+      value: 100.0, // قيمة الشراء
+      currency: "TND", // العملة (تونسية دينار)
+      content_name: "Urinexa Product", // اسم المنتج أو الخدمة
+      content_category: "Health Supplement", // فئة المنتج
+      content_ids: ["product_123"], // معرفات المنتجات إذا كانت متاحة
+      content_type: "product",
+      num_items: 1, // عدد العناصر
+    });
+  }, []);
 
   return (
     <div className="h-screen flex items-center justify-center">
