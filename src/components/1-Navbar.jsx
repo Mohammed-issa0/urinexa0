@@ -62,7 +62,7 @@ export default function Navbar({ isModalOpen, setIsModalOpen }) {
               التقييمات
             </a>
             <OrderButton
-              
+            isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}
             />
           </div>
         </div>

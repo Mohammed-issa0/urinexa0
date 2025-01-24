@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaCheckCircle, FaLeaf, FaFlask, FaBolt, FaHeartbeat, FaUserMd } from 'react-icons/fa';
+import OrderButton from './OrderButton';
 
 const BenefitsSection = ({ isModalOpen, setIsModalOpen }) => {
   const benefits = [
@@ -92,12 +93,13 @@ const BenefitsSection = ({ isModalOpen, setIsModalOpen }) => {
           whileInView={{ opacity: 1 }}
           // viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-16 text-center"
+          className="mt-16 mb-4 text-center"
         >
           <p className="text-xl text-primary font-semibold">
             استعد صحتك وحيويتك مع Urinexa - الحل الطبيعي المتكامل
           </p>
         </motion.div>
+        <OrderButton isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       </div>
     </section>
   );

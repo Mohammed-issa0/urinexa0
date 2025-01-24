@@ -12,6 +12,8 @@ import PricingSection from './components/8-PricingSection';
 import FinalCTASection from './components/10-FinalCTASection';
 import Tork from './components/Tork'
 import Tork2 from "./components/Tork2";
+import { db } from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
 function App() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,30 +40,31 @@ function App() {
       return;
     }
     setLoading(true);
-    // try {
-    //   // إرسال البيانات إلى Firestore
-    //   await addDoc(collection(db, "orders"), {
-    //     name,
-    //     phone,
-    //     timestamp: new Date(),
-    //   });
+    try {
+      // إرسال البيانات إلى Firestore
+      await addDoc(collection(db, "orders"), {
+        name,
+        phone,
+        timestamp: new Date(),
+      });
 
-    //   // التنقل إلى صفحة الشكر
-    //   navigate("/thank-you");
-    // } catch (error) {
-    //   console.error("حدث خطأ أثناء إرسال البيانات:", error);
-    //   alert("عذرًا، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى.");
-    // } finally {
-    //   setLoading(false); // انتهاء التحميل
-    //   setIsModalOpen(false); // غلق النافذة بعد الإرسال
-    // }
-    navigate("/thank-you");
+      // التنقل إلى صفحة الشكر
+      navigate("/thank-you");
+    } catch (error) {
+      console.error("حدث خطأ أثناء إرسال البيانات:", error);
+      alert("عذرًا، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى.");
+    } finally {
+      setLoading(false); // انتهاء التحميل
+      setIsModalOpen(false); // غلق النافذة بعد الإرسال
+    }
+
     setIsModalOpen(false); // غلق النافذة بعد الإرسال
   };
 
   return (
     <div className="min-h-screen bg-secondary text-center" dir="rtl">
       
+      {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="bg-white rounded-lg p-6 w-full max-w-md">
@@ -105,43 +108,6 @@ function App() {
                   placeholder="أدخل رقم هاتفك"
                 />
               </div>
-
-              {/* Quantity */}
-              {/* <div>
-                <label
-                  htmlFor="quantity"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  عدد العبوات المطلوبة
-                </label>
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  value={formData.quantity}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                  placeholder="أدخل العدد"
-                />
-              </div> */}
-
-              {/* Contact Method
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  طريقة التواصل
-                </label>
-                <select
-                  name="method"
-                  value={formData.method}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                >
-                  <option value="">اختر طريقة التواصل</option>
-                  <option value="whatsapp">واتساب</option>
-                  <option value="telegram">تلغرام</option>
-                  <option value="gmail">Gmail</option>
-                </select>
-              </div> */}
             </form>
 
             <div className="flex justify-end mt-6 space-x-2">
@@ -174,7 +140,7 @@ function App() {
       
       <BenefitsSection isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       <HealthRisksSection isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
-      <Tork2/>
+      <Tork2 isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       <AdditionalBenefitsSection isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       <PricingSection isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       <FAQSection isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
